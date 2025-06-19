@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Checkout</h2>
+<form method="post">
+  <input type="text" name="card_number" placeholder="Enter card number" required>
+  <button type="submit">Pay</button>
+</form>
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}
+{% endblock %}
