@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>E-Commerce App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <title>E-Commerce App</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <header>
-        <h1>E-Store</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/items">Items</a>
-            <a href="/cart">Cart</a>
-            <a href="/contact">Contact Us</a>
-            <a href="/feedback">Feedback</a>
-        </nav>
-    </header>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+<body class="{{ page }}">
+  <header>
+    <nav class="navbar">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/items" class="nav-link">Items</a>
+      <a href="/cart" class="nav-link">Cart</a>
+      <a href="/contact" class="nav-link">Contact Us</a>
+      <a href="/feedback" class="nav-link">Feedback</a>
+    </nav>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer style="text-align:center; margin-top:50px;">
+    <p>&copy; 2025 Laptop Store</p>
+  </footer>
 </body>
 </html>

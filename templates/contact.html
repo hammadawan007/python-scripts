@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Contact Us</h2>
-<p>Email: support@estore.com</p>
-<p>Phone: +92-300-1234567</p>
+<div class="container">
+  <h2>Contact Us</h2>
+  <p>Need help? Reach out to our support team.</p>
+  <p>Email: support@laptopstore.com</p>
+  <p>Phone: +92 300 1234567</p>
+
+  <form method="POST" action="#">
+    <input type="text" name="name" placeholder="Your Name" required><br><br>
+    <input type="email" name="email" placeholder="Your Email" required><br><br>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea><br><br>
+    <button type="submit">Send Message</button>
+  </form>
+</div>
 {% endblock %}
