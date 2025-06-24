@@ -8,12 +8,26 @@ app.secret_key = os.getenv("SECRET_KEY")
 
 # Sample Laptop Items
 items = [
-    {"id": 1, "name": "Dell XPS 13", "price": 150000},
-    {"id": 2, "name": "MacBook Pro 2022", "price": 200000},
-    {"id": 3, "name": "HP EliteBook 840 G5", "price": 67000},
-    {"id": 4, "name": "Dell Latitude 5300", "price": 60000},
-    {"id": 5, "name": "Dell Latitude 7490", "price": 60000}
+    {
+        "id": 1,
+        "name": "Dell XPS 13",
+        "price": 1200,
+        "image": "https://images.pexels.com/photos/374074/pexels-photo-374074.jpeg"
+    },
+    {
+        "id": 2,
+        "name": "MacBook Pro",
+        "price": 2500,
+        "image": "https://images.pexels.com/photos/18105/pexels-photo.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Lenovo ThinkPad",
+        "price": 999,
+        "image": "https://images.pexels.com/photos/1181308/pexels-photo-1181308.jpeg"
+    }
 ]
+
 
 
 @app.route('/')
@@ -55,6 +69,16 @@ def checkout():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app.route('/feedback', methods=["GET", "POST"])
+def feedback():
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        message = request.form.get("message")
+        print(f"Feedback Received:\nName: {name}\nEmail: {email}\nMessage: {message}")
+    return render_template('feedback.html', page='feedback')
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)

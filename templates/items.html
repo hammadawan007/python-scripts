@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Available Laptops</h2>
-<ul>
+<div class="grid-container">
   {% for item in items %}
-    <li>{{ item.name }} - ${{ item.price }}
-      <a href="/add-to-cart/{{ item.id }}">Add to Cart</a>
-    </li>
+    <div class="item-card">
+      <img src="{{ item.image }}" alt="{{ item.name }}">
+      <h3>{{ item.name }}</h3>
+      <p>${{ item.price }}</p>
+      <a class="buy-btn" href="/add-to-cart/{{ item.id }}">Add to Cart</a>
+    </div>
   {% endfor %}
-</ul>
+</div>
 {% endblock %}
+
